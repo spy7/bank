@@ -1,0 +1,12 @@
+body { background-color: #1d286b; color: #ffffff; }
+
+.jumbotron { background-color: #0e184b; }
+
+td { color: #ffffff; }
+
+th { color: #ffe600; }
+
+.borderless td, .borderless th {
+    border: none;
+}
+
