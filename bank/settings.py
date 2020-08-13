@@ -26,7 +26,7 @@ SECRET_KEY = '%fqzhuw_j1@6v%cr)3u1wsa^)q59xvtmd3$_d6$$c%8s=w#&zi'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://fjbank.herokuapp.com/"]
 
 
 # Application definition
@@ -125,6 +125,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
