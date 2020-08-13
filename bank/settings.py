@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = '%fqzhuw_j1@6v%cr)3u1wsa^)q59xvtmd3$_d6$$c%8s=w#&zi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = not os.environ.get('DEBUG') or os.environ.get('DEBUG') != 'False'
 
-ALLOWED_HOSTS = ["https://fjbank.herokuapp.com/"]
+ALLOWED_HOSTS = ["fjbank.herokuapp.com"]
 
 
 # Application definition
