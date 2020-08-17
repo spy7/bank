@@ -77,13 +77,24 @@ WSGI_APPLICATION = "bank.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+if DEBUG:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
-}
-
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "d78cpoeoi4elrh",
+            "USER": "vluhahqgsmjodf",
+            "PASSWORD": "03eacdfaf809374fa56ef6f03df318a09c815204b6006a9107325a5f3c33e220",
+            "HOST": "ec2-54-158-122-162.compute-1.amazonaws.com",
+            "PORT": "5432",
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

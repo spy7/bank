@@ -23,6 +23,7 @@
             <table class="table borderless">
                 <thead>
                     <tr>
+                        <th scope="col">Date</th>
                         <th scope="col">Description</th>
                         <th scope="col">Value</th>
                     </tr>
@@ -30,6 +31,7 @@
                 <tbody>
                     {% for extract in account.extracts.all %}
                     <tr>
+                        <td>{{ extract.date | date:"d/m/Y" }}</td>
                         <td>{{ extract.description }}</td>
                         <td>{{ extract.value }}</td>
                     </tr>

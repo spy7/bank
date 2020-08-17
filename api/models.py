@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 
 class Account(models.Model):
@@ -14,6 +15,7 @@ class Account(models.Model):
 
 
 class Extract(models.Model):
+    date = models.DateField(default=date.today)
     description = models.CharField(max_length=50)
     value = models.DecimalField(max_digits=10, decimal_places=2)
     account = models.ForeignKey(
