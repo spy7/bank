@@ -14,18 +14,24 @@
         </div>
 
         <div class="container">
+            <a href="/{{ account.number }}/">
             <div class="row">
                 <h2>{{ account.name }}</h2>
             </div>
+            </a>
             <div class="row">
-                <h3>$ {{ account.balance }}</h3>
+                <h3>Debt: $ {{ account.debt }}</h3>
             </div>
-            {% if sum_debt > 0.005 %}
-            <a href="/{{ account.number }}/c/">
-            <div class="credit row">
-                Debt: $ {{ sum_debt | floatformat:"2" }}
+            <div class="row">
+                <h4>Due date: {{ account.due_date | date:"d/m/Y" }}</h4>
             </div>
-            </a>            
+            {% if interest > 0.005 %}
+            <div class="row">
+                <h4>Interest: $ {{ interest | floatformat:"2" }}</h4>
+            </div>
+            <div class="row credit">
+                <h3>Total: $ {{ sum_debt | floatformat:"2" }}</h3>
+            </div>
             {% endif %}
             <table class="table borderless">
                 <thead>
@@ -36,7 +42,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for extract in account.extracts.all %}
+                    {% for extract in account.credits.all %}
                     <tr>
                         <td>{{ extract.date | date:"d/m/Y" }}</td>
                         <td>{{ extract.description }}</td>

@@ -1,9 +1,11 @@
 from rest_framework import generics
-from .models import Account, Extract
+from .models import Account, Extract, Credit
 from .serializers import (
     AccountSerializer,
     ExtractSerializer,
+    CreditSerializer,
     AccountExtractSerializer,
+    AccountCreditSerializer,
 )
 
 
@@ -17,8 +19,20 @@ class ExtractList(generics.ListCreateAPIView):
     serializer_class = ExtractSerializer
 
 
+class CreditList(generics.ListCreateAPIView):
+    queryset = Credit.objects.all()
+    serializer_class = CreditSerializer
+
+
 class AccountExtractView(generics.RetrieveAPIView):
     lookup_field = "number"
     lookup_url_kwarg = "number"
     queryset = Account.objects.all()
     serializer_class = AccountExtractSerializer
+
+
+class AccountCreditView(generics.RetrieveAPIView):
+    lookup_field = "number"
+    lookup_url_kwarg = "number"
+    queryset = Account.objects.all()
+    serializer_class = AccountCreditSerializer
