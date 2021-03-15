@@ -91,7 +91,7 @@ else:
             "NAME": "d78cpoeoi4elrh",
             "USER": "vluhahqgsmjodf",
             "PASSWORD": "03eacdfaf809374fa56ef6f03df318a09c815204b6006a9107325a5f3c33e220",
-            "HOST": os.environ.get("DATABASE_URL").split("@")[-1],
+            "HOST": os.environ.get("DATABASE_URL").split("@")[-1].split(":")[0],
             "PORT": "5432",
         }
     }
